@@ -1,6 +1,6 @@
 def encoder(password):
     # Split the password from a string to a list so I can loop through it
-    password = password.split()
+    password = list(password)
 
     # Loop through the indeces of the password
     for index in range(len(password)):
@@ -14,8 +14,24 @@ def encoder(password):
     # Return the password as a string
     return "".join(password)
 
-def decode():
-    pass
+def decode(password):
+    # encoder(password)
+    # for i in encoder(password):
+    #     list = []
+    list = []
+    newlist = []
+    for letter in password:
+        list.append(letter)
+    for i in list:
+        add = -3
+        i = int(i)
+        add += i
+        # print(add, end="")
+        newlist.append(add)
+
+    final = ''.join(map(str, newlist))
+
+    return final
 
 def main():
     stored_pass = False
@@ -36,7 +52,8 @@ def main():
 
         # If the user wants to decode
         elif choice == 2:
-            print("Decode has not been implemented yet.\n")
+            # print("Decode has not been implemented yet.\n")
+            print(f"The decoded password is {encoder(pass_to_encode)}, and the original password is {decode(encoder(pass_to_encode))}.")
 
         # If the user wants to quit
         elif choice == 3:
