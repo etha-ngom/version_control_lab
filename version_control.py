@@ -1,11 +1,17 @@
 def encoder(password):
+    # Split the password from a string to a list so I can loop through it
     password = password.split()
+
+    # Loop through the indeces of the password
     for index in range(len(password)):
+        # The number at the index += 3
         password[index] = int(password[index]) + 3
+        # If adding 3 makes the number greater than or equal to 10, subtract 10
         if password[index] >= 10:
             password[index] -= 10
         password[index] = str(password[index])
 
+    # Return the password as a string
     return "".join(password)
 
 def decode():
